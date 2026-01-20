@@ -1,4 +1,3 @@
-"use strict";
 "use client";
 
 import { motion } from "framer-motion";
@@ -22,23 +21,23 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="relative z-10 max-w-3xl mx-auto"
           >
-            <span className="text-sand text-sm font-bold uppercase tracking-widest mb-4 block">Reservas</span>
+            <span className="text-sand text-sm font-bold uppercase tracking-widest mb-4 block">Reservas y Consultas</span>
             <h2 className="text-4xl md:text-6xl font-serif mb-8">¿Listo para tu escapada?</h2>
             <p className="text-lg md:text-xl text-white/80 mb-12 leading-relaxed">
-              Actualmente gestionamos nuestras reservas de forma personalizada. 
-              Escríbenos para consultar disponibilidad y precios. Te responderemos a la mayor brevedad.
+              Escríbenos para consultar disponibilidad, precios o cualquier duda que tengas.
+              Gestionamos nuestras reservas de forma personalizada para ofrecerte el mejor servicio.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <a 
-                href="mailto:info@campingmobydick.com" 
+              <a
+                href="mailto:info@campingmobydick.com"
                 className="group bg-clay text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-clay transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
               >
                 <Mail className="group-hover:scale-110 transition-transform" />
                 info@campingmobydick.com
               </a>
-              <a 
-                href="mailto:bungalows@campingmobydick.com" 
+              <a
+                href="mailto:bungalows@campingmobydick.com"
                 className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-forest transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Mail className="group-hover:scale-110 transition-transform" />

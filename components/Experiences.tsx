@@ -53,18 +53,18 @@ export function Experiences() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative h-[400px] overflow-hidden rounded-xl cursor-pointer"
             >
-              <Image 
-                src={exp.image} 
-                alt={exp.title} 
+              <Image
+                src={exp.image}
+                alt={exp.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300" />
-              
-              <div className="absolute bottom-0 left-0 p-6 text-white transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
-                <span className="text-xs font-bold uppercase tracking-wider text-sand mb-2 block opacity-0 group-hover:opacity-100 transition-opacity delay-100">{exp.category}</span>
+
+              <div className="absolute bottom-0 left-0 p-6 text-white transform translate-y-0 md:translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+                <span className="text-xs font-bold uppercase tracking-wider text-sand mb-2 block opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity delay-100">{exp.category}</span>
                 <h3 className="text-2xl font-serif mb-2">{exp.title}</h3>
-                <p className="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 line-clamp-3">
+                <p className="text-white/80 text-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 delay-75 line-clamp-3">
                   {exp.description}
                 </p>
               </div>
