@@ -246,30 +246,26 @@ export function AccommodationDetails() {
                         )}
                     </AnimatePresence>
 
-                    {/* Denser Shared Services Bar */}
-                    <div className="mt-12 bg-forest rounded-3xl p-8 lg:p-12 text-sand">
-                        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
-                            <div className="text-center md:text-left">
-                                <h3 className="text-2xl font-serif text-white mb-2">Servicios e Instalaciones</h3>
-                                <p className="text-sand/70 text-sm">Todo lo que necesitas para tu día a día en el camping</p>
-                            </div>
-                            <a href="#contacto" className="text-xs font-bold uppercase tracking-widest border-b border-clay pb-1 hover:text-white transition-colors">
-                                Ver ubicación y contacto
-                            </a>
+                    {/* Services Section Redesign */}
+                    <div className="mt-24 pt-12 border-t border-stone-200">
+                        <div className="text-center mb-16">
+                            <span className="text-clay text-sm font-bold uppercase tracking-widest mb-4 block">Confort & Servicios</span>
+                            <h3 className="text-4xl md:text-5xl font-serif text-forest mb-4">Todo lo indispensable</h3>
+                            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+                                Porque acampar no significa renunciar a la comodidad.
+                            </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12">
                             {SHARED_SERVICES.map((s, idx) => (
-                                <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group">
-                                    <div className="w-10 h-10 rounded-xl bg-sand/10 flex items-center justify-center shrink-0 group-hover:bg-clay/20 transition-colors">
-                                        <s.icon size={18} className="text-sand" />
+                                <div key={idx} className="flex flex-col items-center text-center group">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-forest/5 text-forest flex items-center justify-center mb-3 md:mb-6 group-hover:bg-forest group-hover:text-sand transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:-translate-y-1">
+                                        <s.icon size={24} strokeWidth={1.5} className="md:w-7 md:h-7" />
                                     </div>
-                                    <div className="min-w-0">
-                                        <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white mb-1">{s.name}</h4>
-                                        <p className="text-[10px] text-sand/60 leading-tight line-clamp-2 group-hover:line-clamp-none transition-all">
-                                            {s.desc}
-                                        </p>
-                                    </div>
+                                    <h4 className="text-sm md:text-lg font-bold text-forest mb-2 md:mb-3 font-serif">{s.name}</h4>
+                                    <p className="text-xs md:text-sm text-stone-600 leading-relaxed max-w-[200px] hidden md:block">
+                                        {s.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>

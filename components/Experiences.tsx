@@ -35,11 +35,15 @@ export function Experiences() {
   return (
     <section id="experiencias" className="py-24 bg-stone-100">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-clay text-sm font-bold uppercase tracking-widest mb-2 block">Entorno</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-forest mb-6">Mucho más que sol y playa</h2>
-          <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-            Calella de Palafrugell es cultura, deporte y tradición. Aprovecha al máximo tu estancia descubriendo la Costa Brava.
+        <div className="text-center mb-20">
+          <span className="text-clay text-sm font-bold uppercase tracking-widest mb-4 block">El Entorno</span>
+          <h2 className="text-5xl md:text-7xl font-serif text-forest mb-8 leading-tight">
+            Mucho más que <br />
+            <span className="italic text-forest/40">sol y playa.</span>
+          </h2>
+          <p className="text-stone-600 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+            Calella de Palafrugell es cultura, deporte y tradición. <br className="hidden md:block" />
+            Descubre la auténtica esencia de la Costa Brava.
           </p>
         </div>
 
