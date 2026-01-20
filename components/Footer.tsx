@@ -51,7 +51,7 @@ export function Footer() {
               17210, Calella de Palafrugell<br />
               Girona, España
             </address>
-            <a href="https://maps.google.com" target="_blank" className="inline-block text-xs uppercase tracking-wider border-b border-sand/30 pb-0.5 hover:text-white hover:border-white transition-all">
+            <a href="https://www.google.com/maps/search/Camping+Moby+Dick+Calella+de+Palafrugell" target="_blank" className="inline-block text-xs uppercase tracking-wider border-b border-sand/30 pb-0.5 hover:text-white hover:border-white transition-all">
               Ver en Mapa
             </a>
           </div>

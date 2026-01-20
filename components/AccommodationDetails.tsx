@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
-    Home, Tent, Check, Info,
+    Home, Tent, Check,
     Wifi, Waves, Utensils, ShoppingBag,
     WashingMachine, Gamepad2, Flower2,
     ParkingCircle, Flame, Dog, Zap, Trash2,
@@ -62,25 +62,26 @@ export function AccommodationDetails() {
                     </div>
                 </div>
 
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     <AnimatePresence mode="wait">
                         {activeTab === "bungalow" ? (
                             <motion.div
                                 key="bungalow"
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-3xl overflow-hidden shadow-xl"
+                                transition={{ duration: 0.6 }}
+                                className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
                             >
-                                {/* Visual Side with Gallery */}
-                                <div className="relative h-[400px] lg:h-auto overflow-hidden group bg-stone-200">
+                                {/* Visual Side with Gallery (Larger share) */}
+                                <div className="lg:col-span-7 relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl group shadow-2xl">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={currentBungalowImg}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
+                                            initial={{ opacity: 0, scale: 1.1 }}
+                                            animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.5 }}
+                                            transition={{ duration: 0.7 }}
                                             className="absolute inset-0"
                                         >
                                             <Image
@@ -92,154 +93,173 @@ export function AccommodationDetails() {
                                         </motion.div>
                                     </AnimatePresence>
 
-                                    {/* Gallery Navigation Dots */}
-                                    <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
-                                        {bungalowImages.map((_, i) => (
+                                    {/* Glassy Controls */}
+                                    <div className="absolute inset-x-0 bottom-0 p-8 flex justify-between items-end bg-gradient-to-t from-black/60 to-transparent">
+                                        <div className="flex gap-2">
+                                            {bungalowImages.map((_, i) => (
+                                                <button
+                                                    key={i}
+                                                    onClick={() => setCurrentBungalowImg(i)}
+                                                    className={`h-1.5 rounded-full transition-all duration-300 ${currentBungalowImg === i ? 'bg-white w-8' : 'bg-white/40 w-2 hover:bg-white/80'}`}
+                                                />
+                                            ))}
+                                        </div>
+                                        <div className="flex gap-3">
                                             <button
-                                                key={i}
-                                                onClick={() => setCurrentBungalowImg(i)}
-                                                className={`h-1.5 rounded-full transition-all shadow-sm ${currentBungalowImg === i ? 'bg-white w-6' : 'bg-white/50 w-2 hover:bg-white/80'}`}
-                                            />
-                                        ))}
+                                                onClick={() => setCurrentBungalowImg((prev) => (prev - 1 + bungalowImages.length) % bungalowImages.length)}
+                                                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-forest transition-all"
+                                            >
+                                                <ArrowRight className="rotate-180" size={18} />
+                                            </button>
+                                            <button
+                                                onClick={() => setCurrentBungalowImg((prev) => (prev + 1) % bungalowImages.length)}
+                                                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-forest transition-all"
+                                            >
+                                                <ArrowRight size={18} />
+                                            </button>
+                                        </div>
                                     </div>
-
-                                    {/* Gallery Arrows */}
-                                    <button
-                                        onClick={() => setCurrentBungalowImg((prev) => (prev - 1 + bungalowImages.length) % bungalowImages.length)}
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100"
-                                    >
-                                        <ArrowRight className="rotate-180" size={20} />
-                                    </button>
-                                    <button
-                                        onClick={() => setCurrentBungalowImg((prev) => (prev + 1) % bungalowImages.length)}
-                                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100"
-                                    >
-                                        <ArrowRight size={20} />
-                                    </button>
                                 </div>
 
-                                {/* Content Side */}
-                                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                    <div className="mb-6 border-b border-stone-100 pb-6">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <span className="bg-clay/10 text-clay px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-clay/20">
-                                                Top Experience
-                                            </span>
-                                        </div>
-                                        <h3 className="text-3xl md:text-4xl font-serif text-forest leading-tight">
-                                            Cabaña de Madera Finlandesa
+                                {/* Content Side (Refined & Luxury) */}
+                                <div className="lg:col-span-5 flex flex-col justify-center h-full px-2 lg:px-6 py-4">
+                                    <div className="mb-8">
+                                        <span className="inline-block px-3 py-1 mb-4 text-[10px] font-bold uppercase tracking-[0.2em] border border-clay text-clay rounded-full">
+                                            Top Experience
+                                        </span>
+                                        <h3 className="text-4xl md:text-5xl font-serif text-forest leading-[1.1] mb-6">
+                                            Cabaña Finlandesa <br />
+                                            <span className="text-forest/40 italic">de Madera.</span>
                                         </h3>
+                                        <p className="text-stone-600 leading-relaxed font-light text-lg">
+                                            Tu propio refugio de 25m² integrado en el bosque. <br />
+                                            Despierta con el sonido de las olas y disfruta de un desayuno en tu terraza privada con vistas al mar.
+                                        </p>
                                     </div>
 
-                                    <div className="space-y-8">
-                                        <div>
-                                            <h4 className="text-lg font-bold text-stone-700 mb-2">¡Tu casita con vistas al mar!</h4>
-                                            <p className="text-stone-600 leading-relaxed font-light">
-                                                Despierta con el sonido de los pajaritos en nuestro acogedor bungalow de 25m².
-                                                Un refugio familiar a sólo 10min a pie de la playa. Incluye terraza privada, cocina equipada,
-                                                salón con sofá cama y dos dormitorios (uno de ellos en un encantador altillo).
-                                            </p>
+                                    {/* Elegant Specs Grid */}
+                                    <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 border-y border-stone-200 py-8">
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Capacidad</span>
+                                            <span className="font-serif text-xl text-forest">4-5 Personas</span>
                                         </div>
-
-                                        <div className="grid grid-cols-2 gap-y-4">
-                                            <div className="flex items-center gap-2 text-sm text-stone-700">
-                                                <Zap size={16} className="text-clay" /> <span>Cocina Completa</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 text-sm text-stone-700">
-                                                <ParkingCircle size={16} className="text-clay" /> <span>Parking Incluido</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 text-sm text-stone-700">
-                                                <Wind size={16} className="text-clay" /> <span>Climatización (F/C)</span>
-                                            </div>
-                                            <div className="flex items-center gap-2 text-sm text-stone-700">
-                                                <Dog size={16} className="text-stone-400 line-through" /> <span>No se admiten perros</span>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Distribución</span>
+                                            <span className="font-serif text-xl text-forest">2 Habitaciones + Altillo</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Exterior</span>
+                                            <span className="font-serif text-xl text-forest">Terraza Privada</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Extras</span>
+                                            <div className="flex gap-2 text-stone-600">
+                                                <Zap size={18} className="text-clay" />
+                                                <ParkingCircle size={18} className="text-clay" />
+                                                <Wind size={18} className="text-clay" />
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div className="bg-stone-50 p-6 rounded-2xl border border-stone-200">
-                                            <h4 className="text-xs font-bold uppercase text-stone-400 tracking-widest mb-4 flex items-center gap-2">
-                                                <Info size={14} /> Inventario Incluido
-                                            </h4>
-                                            <ul className="text-xs grid grid-cols-2 gap-2 text-stone-600">
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Utensilios & Nevera</li>
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Microondas & TV</li>
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Cafetera Italiana</li>
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Mantas (Temp. Baja)</li>
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Baño Adaptado</li>
-                                                <li className="flex items-center gap-2"><Check size={12} className="text-green-600" /> Terraza Vistas Mar</li>
-                                            </ul>
+                                    <div className="space-y-6">
+                                        <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-stone-500 font-medium uppercase tracking-wider">
+                                            <span className="flex items-center gap-1"><Check size={14} className="text-clay" /> Cocina Equipada</span>
+                                            <span className="flex items-center gap-1"><Check size={14} className="text-clay" /> Baño Completo</span>
+                                            <span className="flex items-center gap-1"><Check size={14} className="text-clay" /> TV & Wifi</span>
+                                            <span className="flex items-center gap-1"><Check size={14} className="text-clay" /> Ropa de cama</span>
                                         </div>
 
-                                        <a href="mailto:bungalows@campingmobydick.com" className="flex items-center justify-center gap-3 w-full bg-forest text-sand py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-forest/90 transition-all shadow-lg shadow-forest/20">
-                                            Consultar Disponibilidad <Mail size={18} />
+                                        <a
+                                            href="mailto:bungalows@campingmobydick.com"
+                                            className="group relative flex items-center justify-between w-full bg-forest text-sand px-8 py-5 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+                                        >
+                                            <span className="relative z-10 text-sm font-bold uppercase tracking-widest group-hover:pl-2 transition-all">Solicitar Reserva</span>
+                                            <span className="relative z-10 bg-white/10 p-2 rounded-full group-hover:bg-white group-hover:text-forest transition-all">
+                                                <Mail size={18} />
+                                            </span>
                                         </a>
+                                        <p className="text-center text-xs text-stone-400 italic">
+                                            * Reservas exclusivamente vía email.
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
                         ) : (
                             <motion.div
                                 key="camping"
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
-                                className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-3xl overflow-hidden shadow-xl"
+                                transition={{ duration: 0.6 }}
+                                className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
                             >
-                                {/* Visual Side */}
-                                <div className="relative h-[400px] lg:h-auto overflow-hidden bg-stone-200">
-                                    <Image src="/images/camping-02.jpg" alt="Acampada Moby Dick" fill className="object-cover" />
+                                {/* Visual Side (Larger) */}
+                                <div className="lg:col-span-7 relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl group shadow-2xl bg-stone-200">
+                                    <Image src="/images/camping-02.jpg" alt="Acampada Moby Dick" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
                                 </div>
 
                                 {/* Content Side */}
-                                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                    <div className="mb-6 border-b border-stone-100 pb-6">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <span className="bg-forest/10 text-forest px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-forest/20">
-                                                Naturaleza Pura
-                                            </span>
-                                        </div>
-                                        <h3 className="text-3xl md:text-4xl font-serif text-forest leading-tight">
-                                            Parcelas para Tienda y Camper
+                                <div className="lg:col-span-5 flex flex-col justify-center h-full px-2 lg:px-6 py-4">
+                                    <div className="mb-8">
+                                        <span className="inline-block px-3 py-1 mb-4 text-[10px] font-bold uppercase tracking-[0.2em] border border-forest/30 text-forest/70 rounded-full">
+                                            Naturaleza Pura
+                                        </span>
+                                        <h3 className="text-4xl md:text-5xl font-serif text-forest leading-[1.1] mb-6">
+                                            Parcela <br />
+                                            <span className="text-forest/40 italic">Tienda & Camper.</span>
                                         </h3>
+                                        <p className="text-stone-600 leading-relaxed font-light text-lg">
+                                            La esencia del camping auténtico. Parcelas sombreadas bajo pinos centenarios, <br />
+                                            donde el único ruido es la brisa y el mar.
+                                        </p>
                                     </div>
 
-                                    <div className="space-y-8">
-                                        <div>
-                                            <h4 className="text-lg font-bold text-stone-700 mb-2">La esencia del camping tradicional</h4>
-                                            <p className="text-stone-600 leading-relaxed font-light">
-                                                Disfruta de la tranquilidad del Baix Empordà en parcelas sombreadas bajo nuestro bosque de pinos y encinas.
-                                                A pocos metros de la playa, disponemos de todo lo necesario para tu aventura al aire libre.
-                                            </p>
+                                    {/* Specs Grid */}
+                                    <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 border-y border-stone-200 py-8">
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Sombra</span>
+                                            <span className="font-serif text-xl text-forest">Natural (Pinares)</span>
                                         </div>
-
-                                        <div className="space-y-4">
-                                            <div className="flex items-start gap-4 p-4 bg-forest/5 rounded-xl border border-forest/10">
-                                                <Zap className="text-forest mt-1" size={20} />
-                                                <div>
-                                                    <h4 className="font-bold text-forest text-sm">Puntos de Electricidad</h4>
-                                                    <p className="text-xs text-stone-600">Alquiler de hasta 1300W. (Prohibido superar esta potencia)</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-4 p-4 bg-stone-50 rounded-xl border border-stone-100">
-                                                <Dog className="text-clay mt-1" size={20} />
-                                                <div>
-                                                    <h4 className="font-bold text-stone-700 text-sm">Mascotas Permitidas</h4>
-                                                    <p className="text-xs text-stone-600">Perros bienvenidos siempre bajo supervisión y atados.</p>
-                                                </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Suelo</span>
+                                            <span className="font-serif text-xl text-forest">Tierra Compacta</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Electricidad</span>
+                                            <span className="font-serif text-xl text-forest">6A - 10A (Opcional)</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-xs uppercase tracking-widest text-stone-400">Mascotas</span>
+                                            <div className="flex gap-2 text-stone-600 items-center">
+                                                <Dog size={18} className="text-forest" />
+                                                <span className="text-sm font-medium">Permitidas</span>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="flex items-center gap-2 text-xs font-medium text-stone-600">
-                                                <Check size={14} className="text-green-600" /> Duchas Agua Caliente
-                                            </div>
-                                            <div className="flex items-center gap-2 text-xs font-medium text-stone-600">
-                                                <Check size={14} className="text-green-600" /> Vaciado Aguas Grises
+                                    <div className="space-y-6">
+                                        <div className="bg-stone-50 p-4 rounded-xl border border-stone-100 mb-2">
+                                            <h5 className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Instalaciones Incluidas</h5>
+                                            <div className="flex flex-wrap gap-4 text-sm font-medium text-stone-600">
+                                                <span className="flex items-center gap-1.5"><Check size={14} className="text-green-600" /> Duchas Calientes</span>
+                                                <span className="flex items-center gap-1.5"><Check size={14} className="text-green-600" /> Wifi Zone</span>
+                                                <span className="flex items-center gap-1.5"><Check size={14} className="text-green-600" /> Vaciado Aguas</span>
                                             </div>
                                         </div>
 
-                                        <a href="mailto:info@campingmobydick.com" className="flex items-center justify-center gap-3 w-full bg-forest text-sand py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-forest/90 transition-all shadow-lg shadow-forest/20">
-                                            Reservar Parcela <Mail size={18} />
+                                        <a
+                                            href="mailto:info@campingmobydick.com"
+                                            className="group relative flex items-center justify-between w-full bg-forest text-sand px-8 py-5 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+                                        >
+                                            <span className="relative z-10 text-sm font-bold uppercase tracking-widest group-hover:pl-2 transition-all">Reservar Parcela</span>
+                                            <span className="relative z-10 bg-white/10 p-2 rounded-full group-hover:bg-white group-hover:text-forest transition-all">
+                                                <Mail size={18} />
+                                            </span>
                                         </a>
+                                        <p className="text-center text-xs text-stone-400 italic">
+                                            * Reservas exclusivamente vía email.
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
