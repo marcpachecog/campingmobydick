@@ -1,58 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contacto" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative Background Element */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-sand/30 -skew-x-12 translate-x-1/4" />
+    <section id="contacto" className="py-32 bg-stone-50 relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-clay/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-forest rounded-3xl p-10 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
-          {/* Texture Overlay */}
-          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+      <div className="container mx-auto px-6 relative z-10 text-center">
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative z-10 max-w-3xl mx-auto"
-          >
-            <span className="text-sand text-sm font-bold uppercase tracking-widest mb-4 block">Reservas y Consultas</span>
-            <h2 className="text-4xl md:text-6xl font-serif mb-8">¿Listo para tu escapada?</h2>
-            <p className="text-lg md:text-xl text-white/80 mb-12 leading-relaxed">
-              Escríbenos para consultar disponibilidad, precios o cualquier duda que tengas.
-              Gestionamos nuestras reservas de forma personalizada para ofrecerte el mejor servicio.
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <span className="inline-block px-3 py-1 mb-6 text-[10px] font-bold uppercase tracking-[0.2em] border border-forest/10 text-forest/60 rounded-full">
+            Contacto & Reservas
+          </span>
 
-            <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <a
-                href="mailto:info@campingmobydick.com"
-                className="group bg-clay text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-clay transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
-              >
-                <Mail className="group-hover:scale-110 transition-transform" />
-                info@campingmobydick.com
-              </a>
-              <a
-                href="mailto:bungalows@campingmobydick.com"
-                className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-forest transition-all duration-300 flex items-center justify-center gap-3"
-              >
-                <Mail className="group-hover:scale-110 transition-transform" />
-                bungalows@campingmobydick.com
-              </a>
-            </div>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-forest leading-[0.9] mb-10">
+            ¿Listo para <br />
+            <span className="opacity-40 italic font-light">tu escapada?</span>
+          </h2>
 
-            <div className="mt-12 pt-8 border-t border-white/10 flex flex-col items-center gap-2">
-              <span className="text-sm uppercase tracking-wider opacity-60">¿Prefieres llamarnos?</span>
-              <a href="tel:+34972614307" className="flex items-center gap-2 text-2xl font-serif hover:text-sand transition-colors">
-                <Phone size={24} /> (+34) 972 61 43 07
-              </a>
-            </div>
-          </motion.div>
-        </div>
+          <p className="text-xl md:text-2xl text-stone-600 font-light max-w-2xl mx-auto mb-16 leading-relaxed">
+            No somos un motor de reservas. Somos personas gestionando tus vacaciones.
+            Escríbenos y diseñaremos tu estancia perfecta.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-20">
+            <a
+              href="mailto:info@campingmobydick.com"
+              className="group relative px-10 py-5 bg-forest text-white rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              <span className="relative z-10 flex items-center gap-3 text-sm font-bold uppercase tracking-widest">
+                <Mail size={18} /> info@campingmobydick.com
+              </span>
+            </a>
+
+            <a
+              href="mailto:bungalows@campingmobydick.com"
+              className="group px-10 py-5 bg-transparent border border-forest/20 text-forest rounded-full transition-all hover:border-forest hover:bg-forest/5"
+            >
+              <span className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest">
+                <Mail size={18} /> Bungalows
+              </span>
+            </a>
+          </div>
+
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-stone-400">O llámanos directamente</p>
+            <a href="tel:+34972614307" className="text-3xl md:text-4xl font-serif text-forest hover:text-clay transition-colors">
+              (+34) 972 61 43 07
+            </a>
+          </div>
+
+        </motion.div>
       </div>
     </section>
   );
