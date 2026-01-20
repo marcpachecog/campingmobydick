@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Waves, Utensils, TreePine, MapPin } from "lucide-react";
+import { Waves, Utensils, MapPin } from "lucide-react";
 
 export function CampingInfo() {
   const features = [
@@ -37,15 +37,15 @@ export function CampingInfo() {
           <span className="text-clay text-sm font-bold uppercase tracking-widest mb-2 block">El Camping</span>
           <h2 className="text-4xl md:text-5xl font-serif text-forest mb-6">Tu refugio natural en la Costa Brava</h2>
           <p className="text-stone-600 text-lg leading-relaxed">
-            Un antiguo bosque adaptado que conserva su carácter rústico y natural. 
-            Combina la esencia del camping tradicional con servicios modernos como Wifi gratuito, 
+            Un antiguo bosque adaptado que conserva su carácter rústico y natural.
+            Combina la esencia del camping tradicional con servicios modernos como Wifi gratuito,
             clases de yoga, y duchas de agua caliente.
           </p>
         </div>
 
         <div className="space-y-32">
           {features.map((feature, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,9 +57,9 @@ export function CampingInfo() {
               <div className="w-full md:w-1/2 relative group">
                 <div className="absolute inset-0 bg-forest/10 translate-x-4 translate-y-4 rounded-xl -z-10 transition-transform group-hover:translate-x-6 group-hover:translate-y-6" />
                 <div className="overflow-hidden rounded-xl shadow-xl relative h-[400px]">
-                  <Image 
-                    src={feature.image} 
-                    alt={feature.title} 
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />

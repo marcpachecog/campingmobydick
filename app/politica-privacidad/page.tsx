@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen bg-stone-50">
       <Navbar />
-      
+
       {/* Header Spacer */}
       <div className="h-32 bg-forest" />
 
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
           <section>
             <h3 className="text-xl font-bold text-forest mb-4">6.- ¿Compartimos sus datos con terceros?</h3>
             <p>
-              Camping MobyDick se compromete a nunca intercambiar ni proporcionar sus datos a terceros sin su consentimiento expreso, salvo proveedores necesarios para el servicio (Master Camping S.L., Cool'n Camp SAS, etc.).
+              Camping MobyDick se compromete a nunca intercambiar ni proporcionar sus datos a terceros sin su consentimiento expreso, salvo proveedores necesarios para el servicio (Master Camping S.L., Cool&apos;n Camp SAS, etc.).
             </p>
           </section>
 

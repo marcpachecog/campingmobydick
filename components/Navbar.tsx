@@ -22,8 +22,9 @@ export function Navbar() {
 
   const links = [
     { name: "El Camping", href: "#camping" },
-    { name: "Bungalows", href: "#bungalows" },
+    { name: "Alojamientos", href: "#alojamientos" },
     { name: "Experiencias", href: "#experiencias" },
+    { name: "FAQ", href: "#faq" },
     { name: "Contacto", href: "#contacto" },
   ];
 
@@ -36,15 +37,15 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/" className="relative z-50">
-           {/* Logo Image */}
-           <Image 
-             src="/images/logo-mobydick.png" 
-             alt="Camping Moby Dick" 
-             width={150}
-             height={64}
-             className="h-16 w-auto object-contain"
-             priority
-           />
+          {/* Logo Image */}
+          <Image
+            src="/images/logo-mobydick.png"
+            alt="Camping Moby Dick"
+            width={150}
+            height={64}
+            className="h-16 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Menu */}

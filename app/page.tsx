@@ -1,9 +1,10 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { CampingInfo } from "@/components/CampingInfo";
-import { Bungalows } from "@/components/Bungalows";
+import { AccommodationDetails } from "@/components/AccommodationDetails";
 import { Gallery } from "@/components/Gallery";
 import { Experiences } from "@/components/Experiences";
+import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -13,9 +14,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <CampingInfo />
-      <Bungalows />
+      <AccommodationDetails />
       <Gallery />
       <Experiences />
+      <Faq />
       <Contact />
       <Footer />
     </main>
