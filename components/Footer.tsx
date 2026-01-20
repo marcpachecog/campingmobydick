@@ -11,18 +11,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-             <Image 
-               src="/images/logo-mobydick.png" 
-               alt="Camping Moby Dick" 
-               width={120}
-               height={48}
-               className="h-12 w-auto object-contain mb-6 invert brightness-0 grayscale opacity-80"
-             />
-             <p className="text-sm leading-relaxed">
-               Costa Verda 16-28<br />
-               17210, Calella de Palafrugell<br />
-               Girona – Costa Brava – España
-             </p>
+            <Image
+              src="/images/logo-mobydick.png"
+              alt="Camping Moby Dick"
+              width={120}
+              height={48}
+              className="h-12 w-auto object-contain mb-6 invert brightness-0 grayscale opacity-80"
+            />
+            <p className="text-sm leading-relaxed">
+              Costa Verda 16-28<br />
+              17210, Calella de Palafrugell<br />
+              Girona – Costa Brava – España
+            </p>
           </div>
 
           {/* Contact */}
@@ -49,7 +49,7 @@ export function Footer() {
             <h4 className="text-white font-serif text-lg mb-6">Explora</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#camping" className="hover:text-white transition-colors">El Camping</a></li>
-              <li><a href="#bungalows" className="hover:text-white transition-colors">Bungalows</a></li>
+              <li><a href="#alojamientos" className="hover:text-white transition-colors">Alojamientos</a></li>
               <li><a href="#experiencias" className="hover:text-white transition-colors">Experiencias</a></li>
               <li><a href="/politica-privacidad" className="hover:text-white transition-colors">Política de Privacidad</a></li>
             </ul>
